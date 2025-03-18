@@ -1,0 +1,14 @@
+.estilosBotonCarrito{
+    background: none; 
+    border: none; 
+    padding: 0; 
+    cursor: pointer;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.estilosBotonCarrito img{
+    width: 25px; 
+    height: 25px;    
+}
+

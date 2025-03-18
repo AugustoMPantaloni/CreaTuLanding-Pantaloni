@@ -1,0 +1,44 @@
+.estilosLogo {
+    display: inline-block;
+    width: 60px; 
+    height: 60px; 
+    cursor: pointer; 
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.estilosContenedorNavBar {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #1E1E1E;
+    height: 60px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; 
+    width: 90%
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.estilosBoton {
+    border: 1px solid white; 
+    padding: 10px 15px; 
+    border-radius: 20px; 
+    background-color: transparent; 
+    color: white; 
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background-color: white; 
+    color: #333;
+}
