@@ -1,0 +1,132 @@
+.contenedorProductos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.productoDetalles {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productoDetalles:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.productoNombre {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.productoImagen {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+}
+
+.productoDescripcion {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.productoPrecio {
+    font-size: 28px;
+    font-weight: 600;
+    color: #f44336; 
+    text-align: center;
+}
+
+.productoCategoria {
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+    font-style: italic;
+}
+
+.ContenedorDescripcionExtendida {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.ContenedorDescripcionExtendida p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.botonAccion {
+    background-color: #f44336;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.botonAccion:hover {
+    background-color: #d32f2f;
+}
+
+.productoCaracteristicas {
+    margin-top: 20px;
+}
+
+.productoCaracteristicas ul {
+    list-style: none;
+    padding: 0;
+}
+
+.productoCaracteristicas li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.productoTitulo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.productoDetalles h2, .productoDetalles p {
+    margin: 0;
+    padding: 0;
+}
