@@ -1,6 +1,7 @@
-// componente que crea las cards
+
 import "./Cards.css";
 import { Link } from "react-router-dom";
+
 
     const Cards = ({ id, imagen, alt, descripcion, precio, categoria, marca }) => {
 

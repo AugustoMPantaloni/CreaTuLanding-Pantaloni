@@ -1,0 +1,67 @@
+/* Contenedor general */
+.containerItemCount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 25px 20px;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+    width: 220px;
+    margin: 30px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Botones de contador */
+  .buttonItemCount {
+    padding: 8px 16px;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s ease;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .buttonItemCount:hover:not(:disabled) {
+    background-color: #45a049;
+    transform: scale(1.1);
+  }
+  
+  .buttonItemCount:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Contador */
+  .contador {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Botón Agregar al carrito */
+  .buttonAddToCart {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff6f00;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .buttonAddToCart:hover {
+    background-color: #e65100;
+    transform: translateY(-2px);
+  }
+  

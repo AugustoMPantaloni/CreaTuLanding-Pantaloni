@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import "./ItemDetailContainer.css"
+import ItemCount from "../itemCount/ItemCount";
 
 const ItemDetailContainer = () => {
     const [productos, setProductos] = useState ([]);
@@ -30,6 +31,7 @@ const ItemDetailContainer = () => {
                         <div className="ContenedorDescripcionExtendida">
                             <p>{producto.descripcionExtendidad}</p>
                     </div>
+                    <ItemCount/>
                 </div>
             ))}
         </div>       
