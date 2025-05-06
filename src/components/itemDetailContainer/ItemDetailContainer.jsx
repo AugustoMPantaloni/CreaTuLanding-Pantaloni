@@ -1,41 +1,74 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import "./ItemDetailContainer.css"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+import "./ItemDetailContainer.css";
 import ItemCount from "../itemCount/ItemCount";
+import { useCart } from "../../context/CartContext";
 
 const ItemDetailContainer = () => {
-    const [productos, setProductos] = useState ([]);
+    const [producto, setProducto] = useState(null);
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     useEffect(() => {
-        fetch("/Productos.json") 
-            .then(response => response.json())
-            .then(data => setProductos(data))
-            .catch(error => console.error("Error al cargar los productos:", error));
-    }, [])
+        const obtenerProducto = async () => {
+            try {
+                const productosRef = collection(db, "productos");
+                const productosSnapshot = await getDocs(productosRef);
 
-    const detalles = productos.filter(producto => producto.id === parseInt(id))
-    
+                const productoEncontrado = productosSnapshot.docs
+                    .map(doc => doc.data())
+                    .find(producto => producto.id === parseInt(id));
+
+                if (productoEncontrado) {
+                    setProducto(productoEncontrado);
+                } else {
+                    console.error("Producto no encontrado");
+                }
+            } catch (error) {
+                console.error("Error al obtener el producto:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        obtenerProducto();
+    }, [id]);
+
+    const { addToCart } = useCart();
+
+    const handleOnAdd = (cantidad) => {
+        addToCart(producto, cantidad);
+    };
+
+    if (loading) {
+        return <p className="pantallaCarga">Cargando producto...</p>;
+    }
+
+    if (!producto) {
+        return <p>Producto no encontrado.</p>;
+    }
+
     return (
-        <div className="contenedorProductos">
-            {detalles.map(producto => (
-                <div key={producto.id}>
-                    <div id={producto.id} className="productoDetalles">
-                            <h2 className="productoNombre">{producto.nombre}</h2>
-                            <img src={producto.imagen} alt={producto.alt} className="productoImagen" />
-                            <p className="productoDescripcion">{producto.descripcion}</p>
-                            <p className="productoPrecio"><strong>Precio:</strong> ${producto.precio}</p>
-                            <p className="productoCategoria"><strong>Categoría:</strong> {producto.categoria}</p>
-                        </div>
-                        <div className="ContenedorDescripcionExtendida">
-                            <p>{producto.descripcionExtendidad}</p>
-                    </div>
-                    <ItemCount/>
-                </div>
-            ))}
-        </div>       
-    )
-}
+            <div className="contenedorProductos">
+            <div id={producto.id} className="productoDetalles">
+            <h2 className="productoNombre">{producto.descripcion}</h2>
+            <img src={producto.imagen} alt={producto.alt} className="productoImagen" />
+            <p className="productoDescripcion">{producto.descripcion}</p>
+            <p className="productoPrecio"><strong>Precio:</strong> ${producto.precio}</p>
+            <p className="productoCategoria"><strong>Categoría:</strong> {producto.categoria}</p>
+            </div>
+            <div className="ContenedorDescripcionExtendida">
+            <p>{producto.descripcionExtendidad}</p>
+            </div>
+            <ItemCount
+            stock={producto.stock}
+            initial={1}
+            onAdd={handleOnAdd}
+            />
+            </div>
+        );
+    };
 
 export default ItemDetailContainer;

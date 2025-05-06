@@ -1,6 +1,9 @@
 import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
 
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+
 import Cards from "../cards/Cards"
 import "./itemListContainer.css"
 
@@ -9,16 +12,38 @@ const ItemListContainer = () =>{
     const [loading , setLoading] = useState(true)
     const {categoria} = useParams()
 
-    useEffect(()=>{
-        const timeOut = setTimeout(()=>{
-            fetch ("/Productos.json")
-            .then(response => response.json())
-            .then(data => setProductos(data))
-            .catch(error =>{ alert("No se pudieron cargar los productos", error.message)})
-            .finally(() => setLoading(false))
-        }, 2000)
-        return() => clearTimeout(timeOut)
-    }, [categoria])
+    useEffect(() => {
+        const obtenerProductos = async () => {
+            setLoading(true);
+    
+            try {
+                const productosRef = collection(db, "productos");
+    
+                let consulta;
+    
+                if (categoria) {
+                    consulta = query(productosRef, where("categoria", "==", categoria));
+                } else {
+                    consulta = productosRef;
+                }
+    
+                const respuesta = await getDocs(consulta);
+                const productosObtenidos = respuesta.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+    
+                setProductos(productosObtenidos);
+            } catch (error) {
+                console.error("Error al obtener productos:", error);
+                alert("No se pudieron cargar los productos");
+            } finally {
+                setLoading(false);
+            }
+        };
+    
+        obtenerProductos();
+    }, [categoria]);
     
     const productosFiltrados = categoria ? productos.filter(p => p.categoria === categoria): productos;
 

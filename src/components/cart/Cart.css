@@ -1,0 +1,125 @@
+.cart-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cart-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item:hover {
+    background-color: #f0f0f0;
+}
+
+.item-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.item-price,
+.item-subtotal,
+.item-quantity {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0.2rem 0;
+}
+
+.remove-btn {
+    align-self: flex-end;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.remove-btn:hover {
+    background-color: #d9363e;
+}
+
+.clear-cart-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto 0 auto;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.clear-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.cart-total {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.cart-total span {
+    color: #007bff;
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.confirm-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto 0 auto;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background-color: #218838;
+}
+
+.confirm-btn:active {
+    background-color: #1e7e34;
+    transform: scale(0.98);
+}

@@ -6,6 +6,8 @@ import ItemListContainer from "./components/itemListContainer/itemListContainer"
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer"
 import Footer from "./components/Footer/Footer"
 import PageNotFound from "./components/NotFound/PageNotFound"
+import Cart from "./components/cart/Cart"
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Route path="/" element={<ItemListContainer/>}/>
         <Route path="/categoria/:categoria" element={<ItemListContainer/>}/>
         <Route path="/detalle/:id" element={<ItemDetailContainer/>}/>
+        <Route path="/CarritoCompras" element={<Cart/>}/>
         <Route path="*" element={<PageNotFound/>}/> 
       </Routes>
       <Footer/>

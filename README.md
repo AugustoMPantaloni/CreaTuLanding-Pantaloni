@@ -1,12 +1,33 @@
-# React + Vite
+# 🛒 E-commerce React - Proyecto Final
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un simulador de tienda online desarrollado con **React** como parte del curso de JavaScript en Coderhouse. Permite a los usuarios visualizar productos, agregar items al carrito, confirmar compras y registrar la orden en **Firebase Firestore**.
 
-Currently, two official plugins are available:
+## 📌 Funcionalidades principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Visualización de productos con sus detalles.
+- Sistema de carrito de compras.
+- Cálculo automático del total de la compra.
+- Confirmación de compra con guardado de la orden en Firebase.
+- Interfaz moderna, responsive y funcional.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React JS**: biblioteca principal para el desarrollo de la interfaz.
+- **React Context**: manejo global del estado del carrito.
+- **Firebase Firestore**: base de datos en la nube para guardar las órdenes.
+- **CSS personalizado**: estilos para mejorar la experiencia visual del usuario.
+
+## ⚙️ Estructura del proyecto
+
+- `src/components/ItemDetail`: muestra los detalles de un producto seleccionado.
+- `src/components/Cart`: contiene el listado de productos agregados al carrito y permite confirmar o vaciar la compra.
+- `src/context/CartContext.js`: contexto global que gestiona el carrito de compras.
+- `firebase/firestore.js`: configuración de conexión a Firebase.
+
+## 🧪 Flujo de usuario
+
+1. El usuario navega por los productos disponibles.
+2. Al hacer clic en un producto, accede a sus detalles y puede agregarlo al carrito.
+3. En el carrito puede ver los productos seleccionados, cantidades y totales.
+4. Al confirmar la compra, se genera un documento en Firebase con los detalles del pedido.
+
